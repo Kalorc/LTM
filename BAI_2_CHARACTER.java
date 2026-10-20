@@ -1,3 +1,4 @@
+import java.nio.charset.StandardCharsets;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
@@ -18,9 +19,18 @@ public class BAI_2_CHARACTER {
 
     }
 
-    static String maHoaURL(String xaua){
+    static String maHoaURL(String xaua) {
+        String giuNguyen = "-_.~!*'();:@&=+$,/";
+        String kq = "";
+        for (byte x : xaua.getBytes(StandardCharsets.UTF_8)) {
+            int v = x & 0xFF;
+            char c = (char) x;
+            if (giuNguyen.indexOf(c) >= 0 || (v < 128 && Character.isLetterOrDigit(c))) {
 
-        return xau
+            }
+        }
+
+        return kq;
     }
 
 }
