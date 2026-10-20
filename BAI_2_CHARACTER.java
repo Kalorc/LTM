@@ -26,7 +26,9 @@ public class BAI_2_CHARACTER {
             int v = x & 0xFF;
             char c = (char) x;
             if (giuNguyen.indexOf(c) >= 0 || (v < 128 && Character.isLetterOrDigit(c))) {
-
+                kq += c;
+            } else {
+                kq += String.format("%%%02X", v);
             }
         }
 
